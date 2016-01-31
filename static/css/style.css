@@ -7,17 +7,20 @@ body {
 
 .container {
   background-color: #E5E5E5;
-.
+  min-height: 99vh;
+  position: relative;
+}
+.students-img {
+  height: 200px;
+  width: 200px;
+  
 }
 .contacts-img {
-  
   height: 200px;
   width: 200px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-
-  
 }
 .contacts-padding {
   padding-top: 50px;
@@ -26,11 +29,15 @@ body {
 .contacts-text {
   text-align: justify;
 }
-.footer {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  margin-top: 40px;
-  border-top: 1px solid #eee;
+footer.footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+}
+.row {
+  padding-bottom: 10vh;
 }
 img {
     max-width: 100%;
@@ -38,17 +45,24 @@ img {
     border-radius: 20px;
 }
 /* Main marketing message and sign up button */
-
+.jumbotron .expl-to-header {
+  border-bottom: 1px solid maroon; 
+  font-weight: normal; 
+  padding-bottom: 5px; 
+  font-size: 16px;
+  color: #8997A4;
+}
 .jumbotron {
-  
   background-color: transparent;
 }
-.jumbotron .btn {
-  padding: 14px 24px;
-  font-size: 21px;
+.jumbotron p {
+  font-size: 16px;
 }
 .jumbotron .h2-textstyle {
   text-align: center;
+}
+.h2-students {
+  text-align: left;
 }
 .jumbotron.lead {
   text-align: justify;
@@ -56,12 +70,16 @@ img {
 .header3-style {
   text-align: center;
 }
+
 /* Customize the nav-justified links to be fill the entire space of the .navbar */
 
 .nav-justified {
   background-color: #ccc;
-  border: 1px solid #ccc;
+  
   border-radius: 5px;
+}
+.nav-justified > li {
+  border-left: 1px solid #ccc;
 }
 .nav-justified > li > a {
   padding-top: 15px;
@@ -87,18 +105,40 @@ img {
   -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
           box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
 }
-.nav-justified > li:first-child > a {
-  border-radius: 5px 5px 0 0;
-}
-.nav-justified > li:last-child > a {
-  border-bottom: 0;
-  border-radius: 0 0 5px 5px;
-}
+
 .nav-justified > img {
   float: left;
   height: 100%;
   width: 50px;
   display:inline;
+}
+table {
+  width: 100%;
+}
+th, td {
+  height: auto;
+  border: 2px solid #b8c0c8;
+  padding: 5px;
+  text-align: center;
+}
+tr.clickablerow:hover { 
+  background: #f2e5e5;
+  cursor: pointer;
+}
+.students-list-table {
+  background: #efefef;
+}
+.student-details-table {
+  width: auto;
+  background: #ffffe5;
+}
+.student-details-table > th, td {
+  text-align: left;
+  text-indent: 10px;
+}
+.student-performance-table {
+  font-size: 16px;
+  background: #e5f2e5;
 }
 
 @media (min-width: 768px) {
@@ -128,7 +168,7 @@ img {
     padding-right: 0;
     padding-left: 0;
   }
-
+}
 
 
 }
