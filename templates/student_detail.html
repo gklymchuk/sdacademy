@@ -11,17 +11,19 @@
     
 
     <title>Denver Pippenger Details</title>
-
+    
+    {% load staticfiles %}
     <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    
     <!-- Custom styles for this template -->
-    <link href="../static/css/style.css" rel="stylesheet">
+    
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
   </head>
 
   <body>
-
+    
     <div class="container">
 
       <!-- The justified navigation menu is meant for single line per list item.
@@ -29,12 +31,12 @@
       <div class="masthead">
         
         <nav class="nav-justified">
-            <img alt="Logo" src="../static/images/logo.png">
+            <img alt="Logo" src="{% static 'images/logo.png' %}">
 						  			
           <ul class="nav nav-justified">
- 		        <li><a href="index.html">Main</a></li>
-            <li><a href="contact.html">Contacts</a></li>
-            <li><a href="student_list.html">Students</a></li>
+ 		        <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'student_list' %}">Students</a></li>
           </ul>
         </nav>
       </div>
@@ -44,7 +46,7 @@
       <div class="jumbotron">
         <h2>Denver Pippenger</h2>
         <div class="students-img">
-            <img alt="denver" src="../static/images/denver.jpg">
+            <img alt="denver" src="{% static 'images/denver.jpg' %}">
         </div>
         <h2 class="h2-students">Student's Card</h2>
         <table class="student-details-table">
@@ -149,9 +151,9 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../static/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
   </body>
 </html>
 
