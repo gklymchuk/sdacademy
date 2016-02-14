@@ -9,6 +9,6 @@ def quadratic_results(request):
     b = request.GET.get('b', '') 
     c = request.GET.get('c', '')
     q = Quadratic(a, b, c)
-    return render(request, 'quadratic/results.html', {'q': q})
+    return render(request, 'results.html', {'q': q})
 
 
