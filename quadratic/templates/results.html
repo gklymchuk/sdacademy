@@ -36,13 +36,13 @@
           <ul class="nav nav-justified">
             <li><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'student_list' %}">Students</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
             <li class="active"><a href="{% url 'results' %}">Equation</a></li>
           </ul>
         </nav>
       </div>
     <div class="jumbotron">
-        <h3 class="h2-textstyle">Квадратное уравнение a*x*x + b*x + c = 0</h3>
+        <h3 class="h3-textstyle">Квадратное уравнение a*x*x + b*x + c = 0</h3>
         <ul class="text-justify">
             <li>a = {{ q.a }}</li>
               {% if q.a == '0' %}{{ q.notes.3 }}

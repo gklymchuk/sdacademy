@@ -29,6 +29,13 @@ body {
 .contacts-text {
   text-align: justify;
 }
+.courses-list-table th, .courses-list-table td {
+  border: 2px solid transparent;
+  border-bottom-color: #b8c0c8;
+  text-indent: 0px;
+  padding: 10px;
+
+}
 footer.footer {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -53,7 +60,8 @@ img {
   color: #8997A4;
 }
 .jumbotron {
-  background-color: transparent;
+  margin-top: 30px;
+  background-color: #d4d9dd;
 }
 .jumbotron p {
   font-size: 16px;
@@ -67,6 +75,7 @@ img {
 .jumbotron.lead {
   text-align: justify;
 }
+
 .header3-style {
   text-align: center;
 }
@@ -74,12 +83,10 @@ img {
 /* Customize the nav-justified links to be fill the entire space of the .navbar */
 
 .nav-justified {
-  background-color: #ccc;
-  
   border-radius: 5px;
 }
 .nav-justified > li {
-  border-left: 1px solid #ccc;
+
 }
 .nav-justified > li > a {
   padding-top: 15px;
@@ -111,15 +118,20 @@ img {
   height: 100%;
   width: 50px;
   display:inline;
+  margin-right: 2px;
 }
 table {
   width: 100%;
 }
 th, td {
   height: auto;
-  border: 2px solid #b8c0c8;
   padding: 5px;
+  border: 2px solid #b8c0c8;
   text-align: center;
+}
+td.clickablerow:hover {
+  background: #f2e5e5;
+  cursor: pointer;
 }
 tr.clickablerow:hover { 
   background: #f2e5e5;
@@ -129,17 +141,20 @@ tr.clickablerow:hover {
   background: #efefef;
 }
 .student-details-table {
-  width: auto;
+  width: auto;s
   background: #ffffe5;
 }
-.student-details-table > th, td {
+.student-details-table>th,td{
   text-align: left;
+  border: 2px solid #b8c0c8;
   text-indent: 10px;
 }
 .student-performance-table {
   font-size: 16px;
+  border: 2px solid #b8c0c8;
   background: #e5f2e5;
 }
+
 
 @media (min-width: 768px) {
   .nav-justified {
@@ -147,7 +162,6 @@ tr.clickablerow:hover {
   }
   .nav-justified > li > a {
     border-right: 1px solid #d5d5d5;
-    border-left: 1px solid #d5d5d5;
   }
   .nav-justified > li:first-child > a {
     border-left: 0;
@@ -165,6 +179,7 @@ tr.clickablerow:hover {
   .masthead, 
   .marketing,
   .footer {
+    margin-top: 10px;
     padding-right: 0;
     padding-left: 0;
   }
