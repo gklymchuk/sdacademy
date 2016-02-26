@@ -14,7 +14,7 @@ class Student(models.Model):
 
     def my_property(self):
         return self.name + ' ' + self.surname
-    my_property.short_description = "Full Name"
+    my_property.short_description = "Full name"
     full_name = property(my_property)
 
     def __unicode__(self):
