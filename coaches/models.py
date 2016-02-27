@@ -10,8 +10,19 @@ class Coach(models.Model):
     address = models.CharField(max_length=250)
     skype = models.CharField(max_length=250)
     description = models.TextField()
-    first_name = User.objects.get().first_name
-    last_name = User.objects.get().last_name
 
     def __unicode__(self):
-        return self.first_name
+        return self.user.first_name
+
+    def first_name(self):
+        return self.user.first_name
+
+    def last_name(self):
+        return self.user.last_name
+
+    def is_staff(self):
+        return self.user.is_staff
+
+    def email(self):
+        return self.user.email
+

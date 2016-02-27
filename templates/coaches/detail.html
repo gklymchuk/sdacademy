@@ -7,96 +7,92 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="SDAcademy Web">
     <meta name="author" content="Grygoriy Klymchuk">
-    
 
-    <title>Course Details</title>
+
+    <title>Coach Details</title>
 
     {% load staticfiles %}
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    
+
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
   </head>
 
   <body>
-    
+
     <div class="container">
 
       <!-- The justified navigation menu is meant for single line per list item.
            Multiple lines will require custom code not provided by Bootstrap. -->
       <div class="masthead">
-        
+
         <nav class="nav-justified">
             <img alt="Logo" src="{% static 'images/logo.png' %}">
-						  			
+
           <ul class="nav nav-justified">
             <li><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
             <li><a href="{% url 'results' %}">Equation</a></li>
           </ul>
         </nav>
       </div>
 
       <!-- Jumbotron -->
-      <div class="jumbotron">
-        <h2 class="h2-textstyle">{{ course }}</h2>
-        <p class="text-justify">
-          {{ course.description }}
-        </p>
-
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Coach</h3>
-        </div>
-        <div class="panel-body">
-          <p>
-            <a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.first_name }} {{ course.coach.last_name }}</a>
-          </p>
-          <p>
-            {{ course.coach.description }}
-          </p>
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Assistant</h3>
-        </div>
-        <div class="panel-body">
-          <p>
-            <a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.first_name }} {{ course.assistant.last_name }}</a>
-          </p>
-          <p>
-            {{ course.assistant.description }}
-          </p>
-        </div>
-      </div>
-
 
       <div class="jumbotron">
-        <h3 class="h3-textstyle">Course Schedule:</h3>
+        <h3 class="h3-textstyle">{{ coach.first_name  }} {{ coach.last_name  }}</h3>
           <table class="courses-list-table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Subject</th>
-                <th>Description</th>
-              </tr>
-            </thead>
             <tbody>
-              {% for item in lessons %}
-                <tr>
-                  <td>{{ forloop.counter }}</td>
-                  <td>{{ item.subject }}</td>
-                  <td>{{ item.description }}</td>
-                </tr>
-              {% endfor %}
+              <tr>
+                <td>Birthday</td>
+                <td>{{ coach.date_of_birth }}</td>
+              </tr>
+              <tr>
+                <td>Address</td>
+                <td>{{ coach.address }}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>{{ coach.email }}</td>
+              </tr>
+              <tr>
+                <td>Skype</td>
+                <td>{{ coach.skype }}</td>
+              </tr>
+              <tr>
+                <td>Phone</td>
+                <td>{{ coach.phone }}</td>
+              </tr>
+              {% if coach.coach_courses.all|length > 0 %}
+              <tr>
+                <td>Coaching</td>
+                <td>{% for i in coach.coach_courses.all %}
+                      <a href="{% url 'courses:detail' i.id %}">{{ i|linebreaks }}</a>
+                      Currently enrolled
+                      <a href="{% url 'students:list_view' %}?course_id={{ i.id }}">
+                          <span class="glyphicon glyphicon-new-window"></span>
+                      </a>
+                    {% endfor %}
+                </td>
+              </tr>
+              {% endif %}
+              {% if coach.assistant_courses.all|length > 0 %}
+              <tr>
+                <td>Assisting</td>
+                <td>{% for i in coach.assistant_courses.all %}
+                      <a href="{% url 'courses:detail' i.id %}">{{ i|linebreaks }}</a>
+                      Currently enrolled
+                      <a href="{% url 'students:list_view' %}?course_id={{ i.id }}">
+                          <span class="glyphicon glyphicon-new-window"></span>
+                      </a>
+                    {% endfor %}
+                </td>
+              </tr>
+              {% endif %}
             </tbody>
           </table>
       </div>
