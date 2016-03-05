@@ -1,119 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="SDAcademy Web">
-    <meta name="author" content="Grygoriy Klymchuk">
-    
-
-    <title>Course Details</title>
-
-    {% load staticfiles %}
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
-  </head>
-
-  <body>
-    
-    <div class="container">
-
-      <!-- The justified navigation menu is meant for single line per list item.
-           Multiple lines will require custom code not provided by Bootstrap. -->
-      <div class="masthead">
-        
-        <nav class="nav-justified">
-            <img alt="Logo" src="{% static 'images/logo.png' %}">
-						  			
-          <ul class="nav nav-justified">
-            <li><a href="{% url 'index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
-            <li><a href="{% url 'results' %}">Equation</a></li>
-          </ul>
-        </nav>
-      </div>
-
-      <!-- Jumbotron -->
-      <div class="jumbotron">
-        <h2 class="h2-textstyle">{{ course }}</h2>
-        <p class="text-justify">
-          {{ course.description }}
-        </p>
-
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Coach</h3>
-        </div>
-        <div class="panel-body">
-          <p>
-            <a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.first_name }} {{ course.coach.last_name }}</a>
-          </p>
-          <p>
-            {{ course.coach.description }}
-          </p>
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Assistant</h3>
-        </div>
-        <div class="panel-body">
-          <p>
-            <a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.first_name }} {{ course.assistant.last_name }}</a>
-          </p>
-          <p>
-            {{ course.assistant.description }}
-          </p>
-        </div>
-      </div>
+{% extends "base.html" %}
+{% load staticfiles %}
 
 
-      <div class="jumbotron">
-        <h3 class="h3-textstyle">Course Schedule:</h3>
-          <table class="courses-list-table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Subject</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for item in lessons %}
-                <tr>
-                  <td>{{ forloop.counter }}</td>
-                  <td>{{ item.subject }}</td>
-                  <td>{{ item.description }}</td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-      </div>
+{% block title %}{{ course }} details{% endblock title %}
 
-      <!-- Site footer -->
-      <footer class="footer">
-        <p>&copy; 2016 SD Academy</p>
-      </footer>
 
-    </div> <!-- /container -->
+{% block content %}
+  <div class="jumbotron">
+    <h2 class="h2-textstyle">{{ course }}</h2>
+    <p class="text-justify">{{ course.description|truncatechars:32 }}</p>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Coach</h3>
+    </div>
+    <div class="panel-body">
+      <p>
+        <a href="{% url 'coaches:detail' course.coach.id %}">
+          {{ course.coach.first_name }} {{ course.coach.last_name }}</a>
+      </p>
+      <p>{{ course.coach.description }}</p>
+    </div>
+  </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
-  </body>
-</html>
-
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Assistant</h3>
+    </div>
+    <div class="panel-body">
+      <p>
+        <a href="{% url 'coaches:detail' course.assistant.id %}">
+          {{ course.assistant.first_name }} {{ course.assistant.last_name }}</a>
+      </p>
+      <p>{{ course.assistant.description }}</p>
+    </div>
+  </div>
+  <div class="jumbotron">
+    <h3 class="h3-textstyle">Course Schedule:</h3>
+    <table class="courses-list-table">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Subject</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for item in lessons %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ item.subject }}</td>
+        <td>{{ item.description }}</td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock content %}

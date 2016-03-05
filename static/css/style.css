@@ -7,7 +7,7 @@ body {
 
 .container {
   background-color: #E5E5E5;
-  min-height: 99vh;
+  min-height: 100vh;
   position: relative;
 }
 .students-img {
