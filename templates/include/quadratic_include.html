@@ -1,6 +1,6 @@
 {% load filters %}
 <h3 class="h3-textstyle">Квадратное уравнение a*x*x + b*x + c = 0</h3><br>
-<form action="{% url 'results' %}" method="get">
+<form method="get" action="{% url 'results' %}">
   {{ form.as_p }}
   <br>
   <input type="submit" value="Solve it!">
