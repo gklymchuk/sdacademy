@@ -2,13 +2,19 @@
 
 from django.shortcuts import render
 from quadratic.models import Quadratic
+from quadratic.forms import QuadraticForm
 
 
 def quadratic_results(request):
-    a = request.GET.get('a', '')
-    b = request.GET.get('b', '') 
-    c = request.GET.get('c', '')
-    q = Quadratic(a, b, c)
-    return render(request, 'results.html', {'q': q})
+    if request.method == 'GET':
+        form = QuadraticForm(request.GET)
+        if form.is_valid():
+            data = form.cleaned_data
+            a = data['a']
+            b = data['b']
+            c = data['c']
+            q = Quadratic(a, b, c)
+            context = {'q': q, 'form': form}
+            return render(request, 'quadratic/results.html', context)
 
-
+        return render(request, 'quadratic/results.html', {'form': form})
