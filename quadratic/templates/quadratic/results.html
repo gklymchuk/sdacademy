@@ -13,10 +13,13 @@
 
 <div class="jumbotron">
 
-{% include "include/quadratic_include.html" %}
+  <h3 class="h3-textstyle">Квадратное уравнение a*x*x + b*x + c = 0</h3><br>
+  <form method="get" action="{% url 'results' %}">
+    {{ form.as_p }}<br>
+    <input type="submit" value="Solve it!">
+  </form>
+  <br>
 
-  <p class="text-justify">
-    {{ q.solution|linebreaks }}
-  </p>
+  <p class="text-justify">{{ q.solution|linebreaks }}</p>
 </div>
 {% endblock content %}
