@@ -30,12 +30,12 @@ class Quadratic(object):
             elif d == 0:
                 x1 = -b / float(2 * a)
                 return 'Дискриминант: %s' % d + "\n" + \
-                       self.notes[1] + '%s' % x1
+                       self.notes[1] + '%s' % round(x1, 1)
             else:
                 x1 = (-b + math.sqrt(d)) / (2 * a)
                 x2 = (-b - math.sqrt(d)) / (2 * a)
                 return 'Дискриминант: %s' % d + "\n" + \
-                       self.notes[2] + 'x1 = %s, x2 = %s' % (x1, x2)
+                       self.notes[2] + 'x1 = %s, x2 = %s' % (round(x1, 1), round(x2, 1))
         except (ValueError, TypeError, ZeroDivisionError):
             return ''
 
