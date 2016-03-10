@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block title %}Add Lesson{% endblock title %}
+
+
+{% block content %}
+  <div class="jumbotron">
+    <h3 class="h3-textstyle">Add Lesson:</h3>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Add">
+    </form>
+{% endblock content %}

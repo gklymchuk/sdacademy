@@ -22,8 +22,6 @@ def list_view(request):
 
 def create(request):
     form = StudentModelForm
-    if request.method == 'GET':
-        return render(request, 'students/add.html', {'form': form})
     if request.method == 'POST':
         form = StudentModelForm(request.POST)
         if form.is_valid():
@@ -32,6 +30,7 @@ def create(request):
             form.save()
             messages.success(request, 'Student %s %s has been successfully added' % (name, surname))
             return redirect('students:list_view')
+    return render(request, 'students/add.html', {'form': form})
 
 
 def edit(request, pk):

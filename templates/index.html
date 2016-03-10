@@ -13,6 +13,15 @@
   {% include 'include/descr_include.html' %}
 
   <div class="jumbotron">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+    <a href="{% url 'courses:add' %}" type="button" class="btn btn-primary">Add New Course</a>
     <h3 class="h3-textstyle">Courses Available:</h3>
     <table class="courses-list-table">
       <thead>
@@ -24,8 +33,10 @@
       <tbody>
       {% for item in course %}
       <tr>
-        <td><a href="{% url 'courses:detail' item.id %}">{{ item|upper }}</a></td>
+        <td><a href="{% url 'courses:detail' item.pk %}">{{ item|upper }}</a></td>
         <td>{{ item.short_description|title }}</td>
+        <td><a href="{% url 'courses:edit' item.pk %}" type="button" class="btn btn-primary">Edit</a></td>
+        <td><a href="{% url 'courses:remove' item.pk %}" type="button" class="btn btn-primary">Delete</a></td>
       </tr>
       {% endfor %}
       </tbody>

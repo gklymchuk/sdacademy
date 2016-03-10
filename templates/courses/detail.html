@@ -6,6 +6,14 @@
 
 
 {% block content %}
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
   <div class="jumbotron">
     <h2 class="h2-textstyle">{{ course }}</h2>
     <p class="text-justify">{{ course.description|truncatechars:32 }}</p>
@@ -36,6 +44,7 @@
     </div>
   </div>
   <div class="jumbotron">
+    <a href="{% url 'courses:add-lesson' course.pk %}" type="button" class="btn btn-primary">Add Lesson</a>
     <h3 class="h3-textstyle">Course Schedule:</h3>
     <table class="courses-list-table">
       <thead>
