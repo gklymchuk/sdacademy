@@ -42,6 +42,7 @@
           {% endfor %}
         </td>
         <td><a href="{% url 'students:edit' item.pk %}" type="button" class="btn btn-primary">Edit</a></td>
+        <td><a href="{% url 'students:remove' item.pk %}" type="button" class="btn btn-primary">Delete</a></td>
       </tr>
       {% endfor %}
       </tbody>

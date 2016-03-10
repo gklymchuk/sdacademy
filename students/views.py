@@ -35,18 +35,23 @@ def create(request):
 
 
 def edit(request, pk):
-    #if request.method == 'GET':
     pk = int(pk)
     student = Student.objects.get(pk=pk)
-
-        # return render(request, 'students/edit.html', {'form': form})
-    if request == 'POST':
-        form = StudentModelForm(request.POST)
+    form = StudentModelForm(instance=student)
+    if request.method == 'POST':
+        form = StudentModelForm(request.POST, instance=student)
         if form.is_valid():
             print request.POST
             form.save()
             messages.success(request, 'Info on the student has been sucessfully changed.')
-    else:
-        form = StudentModelForm(instance=student)
     return render(request, 'students/edit.html', {'form': form})
 
+
+def remove(request, pk):
+    pk = int(pk)
+    student = Student.objects.get(pk=pk)
+    if request.method == 'POST':
+        student.delete()
+        messages.success(request, 'Info on %s %s has been sucessfully deleted.' % (student.name, student.surname))
+        return redirect('students:list_view')
+    return render(request, 'students/remove.html', {'student': student})

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block title %}Delete student{% endblock title %}
+
+
+{% block content %}
+  <div class="jumbotron">
+    <form method="post">
+      {% csrf_token %}
+      <p>Student {{ student.name }} {{ student.surname }} will be deleted.</p>
+      <input type="submit" value="Delete">
+    </form>
+{% endblock content %}

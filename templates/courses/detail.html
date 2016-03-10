@@ -6,10 +6,6 @@
 
 
 {% block content %}
-
-
-{% block std_url %}?course_id={{ course.id }}{% endblock %}
-
   <div class="jumbotron">
     <h2 class="h2-textstyle">{{ course }}</h2>
     <p class="text-justify">{{ course.description|truncatechars:32 }}</p>
