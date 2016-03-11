@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
 from django.contrib import messages
-from django.http import HttpResponseRedirect
 
 
 def detail(request, pk):
