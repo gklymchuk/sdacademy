@@ -18,6 +18,7 @@
     <h2 class="h2-textstyle">{{ course }}</h2>
     <p class="text-justify">{{ course.description|truncatechars:32 }}</p>
   </div>
+{% if course.coach %}
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">Coach</h3>
@@ -30,7 +31,8 @@
       <p>{{ course.coach.description }}</p>
     </div>
   </div>
-
+{% endif %}
+{% if course.assistant %}
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">Assistant</h3>
@@ -43,6 +45,7 @@
       <p>{{ course.assistant.description }}</p>
     </div>
   </div>
+{% endif %}
   <div class="jumbotron">
     <a href="{% url 'courses:add-lesson' course.pk %}" type="button" class="btn btn-primary">Add Lesson</a>
     <h3 class="h3-textstyle">Course Schedule:</h3>
