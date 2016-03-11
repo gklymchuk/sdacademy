@@ -11,7 +11,7 @@ def detail(request, pk):
     return render(request, 'courses/detail.html', {'course': course, 'lessons': lessons})
 
 
-def create(request):
+def add(request):
     form = CourseModelForm
     if request.method == 'POST':
         form = CourseModelForm(request.POST)
