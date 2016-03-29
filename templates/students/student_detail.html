@@ -5,6 +5,9 @@
 {% block title %}{{ student.name  }}'s Details{% endblock title %}
 
 
+{% block nav_class_students %}active{% endblock %}
+
+
 {% block content %}
   <div class="jumbotron">
     <h3 class="h3-textstyle">{{ student.name }} {{ student.surname }}</h3>
@@ -37,8 +40,6 @@
           {% endfor %}
         </td>
       </tr>
-
-
       </tbody>
     </table>
   </div>

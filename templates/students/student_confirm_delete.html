@@ -5,12 +5,15 @@
 {% block title %}{{ title }}{% endblock title %}
 
 
+{% block nav_class_students %}active{% endblock %}
+
+
 {% block content %}
   <div class="jumbotron">
-    <h3 class="h3-textstyle">{{ title }}</h3>
     <form method="post">
       {% csrf_token %}
-      <p>You are about to delete a {{ course.name }} course</p>
+      <h3 class="h3-textstyle">{{ title }}</h3>
+      <p>{{ student.name }} {{ student.surname }} will be deleted. Are you sure?</p>
       <input type="submit" value="Delete">
     </form>
 {% endblock content %}

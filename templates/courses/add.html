@@ -2,15 +2,16 @@
 {% load staticfiles %}
 
 
-{% block title %}Add New Course{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block content %}
   <div class="jumbotron">
-    <h3 class="h3-textstyle">Add New Course:</h3>
+    <h3 class="h3-textstyle">{{ title }}</h3>
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <input type="submit" value="Add">
+      <input type="submit" value="Submit">
     </form>
+  </div>
 {% endblock content %}

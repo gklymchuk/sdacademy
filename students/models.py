@@ -13,7 +13,7 @@ class Student(models.Model):
     courses = models.ManyToManyField(Course)
 
     def my_property(self):
-        return self.name + ' ' + self.surname
+        return '%s %s' % (self.name, self.surname)
     my_property.short_description = "Full name"
     full_name = property(my_property)
 

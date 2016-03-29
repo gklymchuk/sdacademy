@@ -9,19 +9,20 @@
 
 
 {% block content %}
-<!-- Jumbotron -->
-  {% include 'include/descr_include.html' %}
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+
+{% include 'include/descr_include.html' %}
 
   <div class="jumbotron">
-    {% if messages %}
-      {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          {{ message }}
-        </div>
-      {% endfor %}
-    {% endif %}
-    <a href="{% url 'courses:add' %}" type="button" class="btn btn-primary">Add New Course</a>
+    <a href="{% url 'courses:add' %}" type="button" class="btn btn-primary">
+      <span class="glyphicon glyphicon-plus-sign"></span>Add New Course</a>
     <h3 class="h3-textstyle">Courses Available:</h3>
     <table class="courses-list-table">
       <thead>
@@ -35,8 +36,10 @@
       <tr>
         <td><a href="{% url 'courses:detail' item.pk %}">{{ item|upper }}</a></td>
         <td>{{ item.short_description|title }}</td>
-        <td><a href="{% url 'courses:edit' item.pk %}" type="button" class="btn btn-primary">Edit</a></td>
-        <td><a href="{% url 'courses:remove' item.pk %}" type="button" class="btn btn-primary">Delete</a></td>
+        <td><a href="{% url 'courses:edit' item.pk %}" type="button" class="btn btn-primary">
+          <span class="glyphicon glyphicon-pencil"></span>Edit</a></td>
+        <td><a href="{% url 'courses:remove' item.pk %}" type="button" class="btn btn-danger">
+          <span class="glyphicon glyphicon-remove-sign"></span>Delete</a></td>
       </tr>
       {% endfor %}
       </tbody>

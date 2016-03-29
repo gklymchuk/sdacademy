@@ -2,7 +2,10 @@
 {% load staticfiles %}
 
 
-{% block title %}{{ title }}{% endblock title %}
+{% block title %}Feedback{% endblock title %}
+
+
+{% block nav_class_feedback %}active{% endblock %}
 
 
 {% block content %}
@@ -10,12 +13,12 @@
     {% for message in messages %}
       <div class="alert alert-{{ message.tags }}">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          {{ message }}
+        {{ message }}
       </div>
     {% endfor %}
   {% endif %}
   <div class="jumbotron">
-    <h3 class="h3-textstyle">{{ title }}</h3>
+    <h3 class="h3-textstyle">Please, leave your feedback below:</h3>
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}

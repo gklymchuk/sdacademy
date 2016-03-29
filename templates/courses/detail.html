@@ -5,20 +5,23 @@
 {% block title %}{{ course }} details{% endblock title %}
 
 
+{% block std_url %}?course_id={{ course.id }}{% endblock %}
+
+
 {% block content %}
-    {% if messages %}
-      {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          {{ message }}
-        </div>
-      {% endfor %}
-    {% endif %}
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
   <div class="jumbotron">
     <h2 class="h2-textstyle">{{ course }}</h2>
     <p class="text-justify">{{ course.description|truncatechars:32 }}</p>
   </div>
-{% if course.coach %}
+  {% if course.coach %}
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">Coach</h3>
@@ -31,8 +34,8 @@
       <p>{{ course.coach.description }}</p>
     </div>
   </div>
-{% endif %}
-{% if course.assistant %}
+  {% endif %}
+  {% if course.assistant %}
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">Assistant</h3>
@@ -45,7 +48,7 @@
       <p>{{ course.assistant.description }}</p>
     </div>
   </div>
-{% endif %}
+  {% endif %}
   <div class="jumbotron">
     <a href="{% url 'courses:add-lesson' course.pk %}" type="button" class="btn btn-primary">Add Lesson</a>
     <h3 class="h3-textstyle">Course Schedule:</h3>
@@ -58,7 +61,7 @@
       </tr>
       </thead>
       <tbody>
-      {% for item in lessons %}
+      {% for item in course.lesson_set.all %}
       <tr>
         <td>{{ forloop.counter }}</td>
         <td>{{ item.subject }}</td>
