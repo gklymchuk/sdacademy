@@ -18,7 +18,6 @@ class CourseDetailView(DetailView):
 class CourseCreateView(SuccessMessageMixin, CreateView):
     model = Course
     template_name = 'courses/add.html'
-    success_url = reverse_lazy('index')
     success_message = 'Course %(name)s has been successfully added.'
 
     def get_context_data(self, **kwargs):
