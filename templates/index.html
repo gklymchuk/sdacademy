@@ -21,7 +21,7 @@
 {% include 'include/descr_include.html' %}
 
   <div class="jumbotron">
-    <a href="{% url 'courses:add' %}" type="button" class="btn btn-primary">
+    <a href="{% url 'courses:add' %}" type="button" class="btn btn-success">
       <span class="glyphicon glyphicon-plus-sign"></span>Add New Course</a>
     <h3 class="h3-textstyle">Courses Available:</h3>
     <table class="courses-list-table">
@@ -36,7 +36,7 @@
       <tr>
         <td><a href="{% url 'courses:detail' item.pk %}">{{ item|upper }}</a></td>
         <td>{{ item.short_description|title }}</td>
-        <td><a href="{% url 'courses:edit' item.pk %}" type="button" class="btn btn-primary">
+        <td><a href="{% url 'courses:edit' item.pk %}" type="button" class="btn btn-success">
           <span class="glyphicon glyphicon-pencil"></span>Edit</a></td>
         <td><a href="{% url 'courses:remove' item.pk %}" type="button" class="btn btn-danger">
           <span class="glyphicon glyphicon-remove-sign"></span>Delete</a></td>

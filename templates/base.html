@@ -16,23 +16,26 @@
 </head>
 <body>
   <div class="container">
-  <!-- The justified navigation menu is meant for single line per list item.
-         Multiple lines will require custom code not provided by Bootstrap. -->
     <div class="masthead">
       <nav class="nav-justified">
         <img alt="Logo" src="{% static 'images/logo.png' %}">
 {% block url%}
         <ul class="nav nav-justified">
           <li class="{% block nav_class_index %}{% endblock %}">
-            <a href="{% url 'index' %}">Main</a></li>
+            <a href="{% url 'index' %}">
+              <span class="glyphicon glyphicon-home"></span>Main</a></li>
           <li class="{% block nav_class_contact %}{% endblock %}">
-            <a href="{% url 'contact' %}">Contacts</a></li>
+            <a href="{% url 'contact' %}">
+              <span class="glyphicon glyphicon-list-alt"></span>Contacts</a></li>
           <li class="{% block nav_class_students %}{% endblock %}">
-            <a href="{% url 'students:list_view' %}{% block std_url %}{% endblock %}">Students</a></li>
+            <a href="{% url 'students:list_view' %}{% block std_url %}{% endblock %}">
+              <span class="glyphicon glyphicon-education"></span>Students</a></li>
           <li class="{% block nav_class_results %}{% endblock %}">
-            <a href="{% url 'results' %}">Equation</a></li>
+            <a href="{% url 'results' %}">
+              <span class="glyphicon glyphicon-hand-right"></span>Equation</a></li>
           <li class="{% block nav_class_feedback %}{% endblock %}">
-            <a href="{% url 'feedback' %}">Feedback</a></li>
+            <a href="{% url 'feedback' %}">
+              <span class="glyphicon glyphicon-envelope"></span>Feedback</a></li>
         </ul>
 {% endblock url %}
       </nav>
@@ -42,7 +45,6 @@
     <footer class="footer">
       <p>&copy; 2016 SD Academy</p>
     </footer>
-  </div> <!-- /container -->
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -21,6 +21,7 @@
     <h2 class="h2-textstyle">{{ course }}</h2>
     <p class="text-justify">{{ course.description|truncatechars:32 }}</p>
   </div>
+  <div class="jumbotron">
   {% if course.coach %}
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -49,8 +50,10 @@
     </div>
   </div>
   {% endif %}
+  </div>
   <div class="jumbotron">
-    <a href="{% url 'courses:add-lesson' course.pk %}" type="button" class="btn btn-primary">Add Lesson</a>
+    <a href="{% url 'courses:add-lesson' course.pk %}" type="button" class="btn btn-success"">
+      <span class="glyphicon glyphicon-plus-sign"></span>Add Lesson</a>
     <h3 class="h3-textstyle">Course Schedule:</h3>
     <table class="courses-list-table">
       <thead>
