@@ -22,12 +22,12 @@ body {
 .contacts-text {
   text-align: justify;
 }
-.courses-list-table th, .courses-list-table td {
+.courses-list-table th,
+.courses-list-table td {
   border: 2px solid transparent;
   border-bottom-color: #b8c0c8;
   text-indent: 0px;
   padding: 10px;
-
 }
 footer.footer {
   padding-top: 20px;
@@ -69,6 +69,16 @@ img {
 }
 .jumbotron.lead {
   text-align: justify;
+}
+.modelform-table th,
+.modelform-table td {
+  border: 0px;
+  text-indent: 0px;
+  text-align: left;
+}
+.modelform-table th {
+    width: 1% ;
+    white-space: pre;
 }
 .nav-justified {
   border-radius: 5px;

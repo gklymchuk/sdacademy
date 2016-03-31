@@ -21,7 +21,9 @@
     <h3 class="h3-textstyle">Please, leave your feedback below:</h3>
     <form method="post">
       {% csrf_token %}
-      {{ form.as_p }}
+      <table class="modelform-table">
+      {{ form }}
+      </table>
       <input type="submit" class="btn btn-success" value="Leave Feedback">
     </form>
   </div>

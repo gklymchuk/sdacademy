@@ -13,7 +13,9 @@
     <h3 class="h3-textstyle">{{ title }}</h3>
     <form method="post">
       {% csrf_token %}
-      {{ form.as_p }}
+      <table class="modelform-table">
+      {{ form }}
+      </table>
       <input type="submit" class="btn btn-success" value="Submit">
     </form>
   </div>

@@ -13,7 +13,9 @@
     <h3 class="h3-textstyle">Add Lesson:</h3>
     <form method="post">
       {% csrf_token %}
-      {{ form.as_p }}
+      <table class="modelform-table">
+      {{ form }}
+      </table>
       <input type="submit" class="btn btn-success" value="Add">
     </form>
 {% endblock content %}
