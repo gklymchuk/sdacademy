@@ -31,6 +31,7 @@ body {
 }
 .courses-list-table td {
   border-top-color: #b8c0c8;
+  text-align: left;
 }
 footer.footer {
   padding-top: 20px;
