@@ -98,3 +98,9 @@ EMAIL_PORT = 1025
 DEFAULT_FROM_EMAIL = 'project@mail.com'
 
 ADMINS = (('Admin', 'admin@mail.com'),)
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}

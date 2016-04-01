@@ -103,6 +103,12 @@ img {
   background-repeat: repeat-x; /* Repeat the gradient */
   border-bottom: 1px solid #ccc;
 }
+.nav-justified > li > a:hover,
+.nav-justified > li > a:focus {
+  background-color: #d8e9c1;
+  background-image: none;
+  color: #71a42d;
+}
 .nav-justified > .active > a,
 .nav-justified > .active > a:hover,
 .nav-justified > .active > a:focus {
@@ -122,6 +128,10 @@ img {
 .pagination > li > a {
   background-color: #f2f7ea;
   border: 1px solid #b8c0c8;
+}
+.pagination > li > a:hover,
+.pagination > li > a:focus{
+  background-color: #d8e9c1;
 }
 .pagination>.active > a,
 .pagination>.active>a:focus,
@@ -170,14 +180,6 @@ th, td {
   padding: 5px;
   border: 2px solid #b8c0c8;
   text-align: center;
-}
-td.clickablerow:hover {
-  background: #f2e5e5;
-  cursor: pointer;
-}
-tr.clickablerow:hover {
-  background: #f2e5e5;
-  cursor: pointer;
 }
 
 @media (min-width: 768px) {
