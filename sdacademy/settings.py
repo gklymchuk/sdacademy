@@ -95,7 +95,7 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 # EMAIL_HOST_USER = 'test'
 # EMAIL_HOST_PASSWORD = '***'
-DEFAULT_FROM_EMAIL = 'project@mail.com'
+# DEFAULT_FROM_EMAIL = 'project@mail.com'
 
 ADMINS = (('Admin', 'admin@mail.com'),)
 
