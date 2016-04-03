@@ -13,52 +13,56 @@
   <h3 class="h3-textstyle">{{ coach.first_name }} {{ coach.last_name }}</h3>
   <table class="courses-list-table">
     <tbody>
-    <tr>
-      <td>Birthday</td>
-      <td>{{ coach.date_of_birth|date:'d F, Y' }}</td>
-    </tr>
-    <tr>
-      <td>Address</td>
-      <td>{{ coach.address }}</td>
-    </tr>
-    <tr>
-      <td>Email</td>
-      <td>{{ coach.email }}</td>
-    </tr>
-    <tr>
-      <td>Skype</td>
-      <td>{{ coach.skype }}</td>
-    </tr>
-    <tr>
-      <td>Phone</td>
-      <td>{{ coach.phone }}</td>
-    </tr>
-    {% if coach.coach_courses.all|length > 0 %}
-    <tr>
-      <td>Coaching</td>
-      <td>{% for i in coach.coach_courses.all %}
-        <p><a href="{% url 'courses:detail' i.id %}">{{ i }}</a>
-        | Currently enrolled
-        <a href="{% url 'students:list_view' %}?course_id={{ i.id }}">
-          <span class="glyphicon glyphicon-new-window"></span>
-        </a></p>
-        {% endfor %}
-      </td>
-    </tr>
-    {% endif %}
-    {% if coach.assistant_courses.all|length > 0 %}
-    <tr>
-      <td>Assisting</td>
-      <td>{% for i in coach.assistant_courses.all %}
-        <p><a href="{% url 'courses:detail' i.id %}">{{ i }}</a>
-        | Currently enrolled
-        <a href="{% url 'students:list_view' %}?course_id={{ i.id }}">
-          <span class="glyphicon glyphicon-new-window"></span>
-        </a></p>
-        {% endfor %}
-      </td>
-    </tr>
-    {% endif %}
+      <tr>
+        <td>Birthday</td>
+        <td>{{ coach.date_of_birth|date:'d F, Y' }}</td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td>{{ coach.address }}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{{ coach.email }}</td>
+      </tr>
+      <tr>
+        <td>Skype</td>
+        <td>{{ coach.skype }}</td>
+      </tr>
+      <tr>
+        <td>Phone</td>
+        <td>{{ coach.phone }}</td>
+      </tr>
+      {% if coach.coach_courses.all|length > 0 %}
+        <tr>
+          <td>Coaching</td>
+          <td>
+            {% for i in coach.coach_courses.all %}
+              <p>
+                <a href="{% url 'courses:detail' i.id %}">{{ i }}</a>
+                | Currently enrolled
+                <a href="{% url 'students:list_view' %}?course_id={{ i.id }}">
+                <span class="glyphicon glyphicon-new-window"></span></a>
+              </p>
+            {% endfor %}
+          </td>
+        </tr>
+      {% endif %}
+      {% if coach.assistant_courses.all|length > 0 %}
+        <tr>
+          <td>Assisting</td>
+          <td>
+            {% for i in coach.assistant_courses.all %}
+              <p>
+                <a href="{% url 'courses:detail' i.id %}">{{ i }}</a>
+                | Currently enrolled
+                <a href="{% url 'students:list_view' %}?course_id={{ i.id }}">
+                <span class="glyphicon glyphicon-new-window"></span></a>
+              </p>
+            {% endfor %}
+          </td>
+        </tr>
+      {% endif %}
     </tbody>
   </table>
 </div>

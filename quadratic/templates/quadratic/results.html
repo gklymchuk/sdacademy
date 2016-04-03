@@ -10,14 +10,14 @@
 
 
 {% block content %}
-<div class="jumbotron">
-  <h3 class="h3-textstyle">Квадратное уравнение a*x*x + b*x + c = 0</h3>
-  <form method="get">
-    <table class="modelform-table">
-    {{ form }}
-    </table>
-    <input type="submit" class="btn btn-success" value="Solve it!">
-  </form>
-  <p class="text-justify">{{ q.solution|linebreaks }}</p>
-</div>
+  <div class="jumbotron">
+    <h3 class="h3-textstyle">Квадратное уравнение a*x*x + b*x + c = 0</h3>
+    <form method="get">
+      <table class="modelform-table">
+        {{ form }}
+      </table>
+      <input type="submit" class="btn btn-success" value="Solve it!">
+    </form>
+    <p class="text-justify">{{ q.solution|linebreaks }}</p>
+  </div>
 {% endblock content %}

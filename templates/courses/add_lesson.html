@@ -14,8 +14,9 @@
     <form method="post">
       {% csrf_token %}
       <table class="modelform-table">
-      {{ form }}
+        {{ form }}
       </table>
       <input type="submit" class="btn btn-success" value="Add">
     </form>
+  </div>
 {% endblock content %}

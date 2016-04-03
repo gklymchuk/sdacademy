@@ -35,8 +35,9 @@
       </tr>
       <tr>
         <td>Courses</td>
-        <td>{% for i in student.courses.all %}
-          <a href="{% url 'courses:detail' i.id %}">{{ i|linebreaks }}</a>
+        <td>
+          {% for i in student.courses.all %}
+            <a href="{% url 'courses:detail' i.id %}">{{ i|linebreaks }}</a>
           {% endfor %}
         </td>
       </tr>

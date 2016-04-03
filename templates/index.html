@@ -33,14 +33,14 @@
       </thead>
       <tbody>
       {% for item in course %}
-      <tr>
-        <td><a href="{% url 'courses:detail' item.pk %}">{{ item|upper }}</a></td>
-        <td>{{ item.short_description|title }}</td>
-        <td><a href="{% url 'courses:edit' item.pk %}" type="button" class="btn btn-success">
-          <span class="glyphicon glyphicon-pencil"></span>Edit</a></td>
-        <td><a href="{% url 'courses:remove' item.pk %}" type="button" class="btn btn-danger">
-          <span class="glyphicon glyphicon-remove-sign"></span>Delete</a></td>
-      </tr>
+        <tr>
+          <td><a href="{% url 'courses:detail' item.pk %}">{{ item|upper }}</a></td>
+          <td>{{ item.short_description|title }}</td>
+          <td><a href="{% url 'courses:edit' item.pk %}" type="button" class="btn btn-success">
+            <span class="glyphicon glyphicon-pencil"></span>Edit</a></td>
+          <td><a href="{% url 'courses:remove' item.pk %}" type="button" class="btn btn-danger">
+            <span class="glyphicon glyphicon-remove-sign"></span>Delete</a></td>
+        </tr>
       {% endfor %}
       </tbody>
     </table>
