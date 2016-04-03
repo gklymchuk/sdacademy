@@ -40,8 +40,7 @@
           <td>{{ item.skype }}</td>
           <td>{% for i in item.courses.all %}
                 <a href="{% url 'courses:detail' i.id %}">{{ i|linebreaks }}</a>
-              {% endfor %}
-          </td>
+              {% endfor %}</td>
           <td><a href="{% url 'students:edit' item.pk %}" type="button" class="btn btn-success">
             <span class="glyphicon glyphicon-pencil"></span>Edit</a></td>
           <td><a href="{% url 'students:remove' item.pk %}" type="button" class="btn btn-danger">
@@ -53,14 +52,18 @@
     {% if is_paginated %}
       <div>
         <ul class="pagination">
-          {% if course_id %}
-            {% with '&course_id='|add:course_id as var %}
-              {% include 'include/pagination_include.html' %}
-            {% endwith %}
-          {% else %}
-            {% with '' as var %}
-              {% include 'include/pagination_include.html' %}
-            {% endwith %}
+          {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}{{ var }}"><< previous</a></li>
+          {% endif %}
+          {% for page in page_obj.paginator.page_range %}
+            {% if page == page_obj.number %}
+              <li class="active"><a href="?page={{ page }}{{ var }}">{{ page }}</a></li>
+            {% else %}
+              <li><a href="?page={{ page }}{{ var }}">{{ page }}</a></li>
+            {% endif %}
+          {% endfor %}
+          {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}{{ var }}">next >></a></li>
           {% endif %}
         </ul>
       </div>
