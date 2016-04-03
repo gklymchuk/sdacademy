@@ -54,33 +54,13 @@
       <div>
         <ul class="pagination">
           {% if course_id %}
-            {% if page_obj.has_previous %}
-              <li><a href="?page={{ page_obj.previous_page_number }}&course_id={{ course_id }}"><< previous</a></li>
-            {% endif %}
-            {% for page in page_obj.paginator.page_range %}
-              {% if page == page_obj.number %}
-                <li class="active"><a href="?page={{ page }}&course_id={{ course_id }}">{{ page }}</a></li>
-              {% else %}
-                <li><a href="?page={{ page }}&course_id={{ course_id }}">{{ page }}</a></li>
-              {% endif %}
-            {% endfor %}
-            {% if page_obj.has_next %}
-              <li><a href="?page={{ page_obj.next_page_number }}&course_id={{ course_id }}">next >></a></li>
-            {% endif %}
+            {% with '&course_id='|add:course_id as var %}
+              {% include 'include/pagination_include.html' %}
+            {% endwith %}
           {% else %}
-            {% if page_obj.has_previous %}
-              <li><a href="?page={{ page_obj.previous_page_number }}"><< previous</a></li>
-            {% endif %}
-            {% for page in page_obj.paginator.page_range %}
-              {% if page == page_obj.number %}
-                <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
-              {% else %}
-                <li><a href="?page={{ page }}">{{ page }}</a></li>
-              {% endif %}
-            {% endfor %}
-            {% if page_obj.has_next %}
-              <li><a href="?page={{ page_obj.next_page_number }}">next >></a></li>
-            {% endif %}
+            {% with '' as var %}
+              {% include 'include/pagination_include.html' %}
+            {% endwith %}
           {% endif %}
         </ul>
       </div>
