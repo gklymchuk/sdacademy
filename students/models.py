@@ -3,6 +3,7 @@ from courses.models import Course
 
 
 class Student(models.Model):
+
     name = models.CharField(verbose_name=u'Name', max_length=250)
     surname = models.CharField(verbose_name=u'Surname', max_length=250)
     date_of_birth = models.DateField(verbose_name=u'Date of birth')

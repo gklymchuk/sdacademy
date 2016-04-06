@@ -3,6 +3,7 @@ from feedbacks.models import Feedback
 
 
 class FeedbackAdmin(admin.ModelAdmin):
+
     list_display = ('from_email', 'create_date')
     readonly_fields = ['create_date']
 

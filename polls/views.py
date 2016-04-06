@@ -2,12 +2,11 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
-
 from polls.models import Choice, Question
 
 
-
 class IndexView(generic.ListView):
+
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
@@ -17,11 +16,13 @@ class IndexView(generic.ListView):
 
 
 class DetailView(generic.DetailView):
+
     model = Question
     template_name = 'polls/student_detail.html'
 
 
 class ResultsView(generic.DetailView):
+
     model = Question
     template_name = 'polls/results.html'
 

@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 
 
 class Course(models.Model):
+
     name = models.CharField(verbose_name=u'Name', max_length=250)
     short_description = models.CharField(max_length=250)
     description = models.TextField()
@@ -18,12 +19,18 @@ class Course(models.Model):
 
 
 class Lesson(models.Model):
+
     subject = models.CharField(verbose_name=u'Subject', max_length=250)
     description = models.TextField()
     course = models.ForeignKey(Course)
     order = models.PositiveIntegerField()
 
+    class Meta:
+
+        ordering = ['order']
+
     def __unicode__(self):
         return self.subject
+
 
 

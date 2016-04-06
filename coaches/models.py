@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Coach(models.Model):
+
     user = models.OneToOneField(User)
     date_of_birth = models.DateField()
     gender = models.CharField(max_length=250, choices=(('M', 'Male'), ('F', 'Female')))

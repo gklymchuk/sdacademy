@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Feedback(models.Model):
+
     name = models.CharField(max_length=250)
     subject = models.CharField(max_length=250)
     message = models.TextField()

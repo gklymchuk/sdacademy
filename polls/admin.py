@@ -3,11 +3,13 @@ from polls.models import Choice, Question
 
 
 class ChoiceInline(admin.TabularInline):
+
     model = Choice
     extra = 3
 
 
 class QuestionAdmin(admin.ModelAdmin):
+
     fieldsets = [
         (None,               {'fields': ['question_text']}),
         ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
@@ -18,4 +20,3 @@ class QuestionAdmin(admin.ModelAdmin):
     search_fields = ['question_text']
 
 admin.site.register(Question, QuestionAdmin)
-#admin.site.register(Choice)

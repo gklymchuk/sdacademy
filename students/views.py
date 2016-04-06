@@ -10,6 +10,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 
 
 class StudentListView(ListView):
+
     model = Student
     paginate_by = 2
 
@@ -30,10 +31,12 @@ class StudentListView(ListView):
 
 
 class StudentDetailView(DetailView):
+
     model = Student
 
 
 class StudentCreateView(SuccessMessageMixin, CreateView):
+
     model = Student
     success_url = reverse_lazy('students:list_view')
     success_message = 'Student %(name)s %(surname)s has been successfully added'
@@ -45,6 +48,7 @@ class StudentCreateView(SuccessMessageMixin, CreateView):
 
 
 class StudentUpdateView(SuccessMessageMixin, UpdateView):
+
     model = Student
     success_message = 'Info on the student has been successfully changed.'
 
@@ -58,6 +62,7 @@ class StudentUpdateView(SuccessMessageMixin, UpdateView):
 
 
 class StudentDeleteView(DeleteView):
+
     model = Student
     success_url = reverse_lazy('students:list_view')
 

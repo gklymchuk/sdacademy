@@ -11,11 +11,13 @@ from django.contrib.messages.views import SuccessMessageMixin
 
 
 class CourseDetailView(DetailView):
+
     model = Course
     template_name = 'courses/detail.html'
 
 
 class CourseCreateView(SuccessMessageMixin, CreateView):
+
     model = Course
     template_name = 'courses/add.html'
     success_message = 'Course %(name)s has been successfully added.'
@@ -27,6 +29,7 @@ class CourseCreateView(SuccessMessageMixin, CreateView):
 
 
 class CourseUpdateView(SuccessMessageMixin, UpdateView):
+
     model = Course
     template_name = 'courses/edit.html'
     success_message = 'The changes have been saved.'
@@ -41,6 +44,7 @@ class CourseUpdateView(SuccessMessageMixin, UpdateView):
 
 
 class CourseDeleteView(DeleteView):
+
     model = Course
     success_url = reverse_lazy('index')
     template_name = 'courses/remove.html'

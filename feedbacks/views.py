@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse_lazy
 
 
 class FeedbackView(SuccessMessageMixin, CreateView):
+
     model = Feedback
     template_name = 'feedback.html'
     success_message = 'Thank you for your feedback! We will keep in touch with you very soon!'

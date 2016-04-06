@@ -3,6 +3,7 @@ from students.models import Student
 
 
 class StudentAdmin(admin.ModelAdmin):
+
     search_fields = ['surname', 'email']
     list_filter = ['courses']
     list_display = ['full_name', 'email', 'skype']

@@ -12,6 +12,7 @@
 
 
 {% block content %}
+  <p>
   {% if messages %}
     {% for message in messages %}
       <div class="alert alert-{{ message.tags }}">
@@ -20,6 +21,7 @@
       </div>
     {% endfor %}
   {% endif %}
+  </p>
   <div class="jumbotron">
     <h2 class="h2-textstyle">{{ course }}</h2>
     <p class="text-justify">{{ course.description|truncatechars:32 }}</p>
@@ -69,7 +71,7 @@
       <tbody>
       {% for item in course.lesson_set.all %}
         <tr>
-          <td>{{ forloop.counter }}</td>
+          <td>{{ item.order }}</td>
           <td>{{ item.subject }}</td>
           <td>{{ item.description }}</td>
         </tr>
